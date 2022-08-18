@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+#container{
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  margin: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+button{
+  width: 70px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background: #000;
+ color: #fff;
+    cursor: pointer;
+}
+
+button:active{
+  background: #333;
+}
+
+#text{
+  position: absolute;
+  right: 100px;
+  top: 50px;
+}

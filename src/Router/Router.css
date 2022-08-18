@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+#notfound{
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notfound > img {
+    width: 60%;
+    height: 60%;
+}
+
+label > input{
+    display: none;
+}
+
+label > p{
+    width: 150px;
+    height: 30px;
+    background: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#result{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: -150px;
+    top: 50px;
+}
+
+#result > img{
+    width: 20%;
+    height: 20%;
+    margin: 10px;
+}

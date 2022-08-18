@@ -1,19 +1,1 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: monospace;
-  letter-spacing: 1px;
-}
-
-body{
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ddd;
-  display: flex;
-  flex-direction: column;
-}
 

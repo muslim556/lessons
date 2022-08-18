@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./addimg.css";
+import "./Router.css";
 
-export function AddImg() {
+export function Todos() {
   const [selectedFiles, setSelectedFiles] = useState([]);
 
   function handleImageChange(e) {
@@ -24,12 +24,16 @@ export function AddImg() {
   }
 
   return (
-    <div id="app">
-      <label>
-        <input type="file" id="file" multiple onChange={handleImageChange} />
-        <span>++</span>
-      </label>
-      <div id="result">{renderPhotos(selectedFiles)}</div>
-    </div>
+    <div
+      style={{
+        width: "100%",
+        height: "calc(100vh - 100px)",
+        background: "#ddd",
+        fontSize: "50px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+      }}
+    ></div>
   );
 }
