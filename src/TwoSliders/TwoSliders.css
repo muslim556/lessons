@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+body{
+   display: block;
+   margin: auto;
+   padding: 10%;
+}
+
+#cards{
+    width: 100px;
+    height: 345px;
+    background: gray;
+}
+
+#cards > :nth-child(1){
+    padding-top: 50px;
+}

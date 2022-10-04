@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#root{
+    width: 1440px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#category_container{
+    width: 301px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#category_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#category_card > a{
+    text-decoration: none;
+    color: #686868;
+    font-weight: 600;
+    padding-top: 16px;
+}
+
+#category_card > a.active{
+    color: #ED165F;
+}
+
+#category_card > span{
+    width: 200%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 16px;
+}
+
+#size_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+#size_clear_card{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#size_clear_card > p{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#size_clear_card > button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #C4C4C4;
+    font-size: 14px;
+}
+
+#size_container > :nth-child(2){
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
+}
+
+#choose_size_card{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#choose_size{
+    width: 54px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 0 16px 16px 0;
+}
+
+#size{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#choose_size input:checked ~ #size {
+  background: #ED165F;
+  color: #fff;
+}
+
+#choose_size > input{
+    display: none;
+}
+
+#choose_color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px 16px 0; 
+    cursor: pointer;   
+}
+
+#choose_color > div{
+    width: 32px;
+    height: 32px;
+    background: #F3ECDB;
+    border-radius: 2px;
+    margin-right: 7px;
+}
+
+.blue{
+    background: #465BA3 !important;
+}
+
+.black{
+    background: #000000 !important;
+}
+
+.orange{
+    background:#F07B4E !important;
+}
+
+.green{
+    background: #41854D !important;
+}
+
+.brown{
+    background:#665147 !important;
+}
+
+.purple{
+    background: #893D88!important;
+}
+
+.gold{
+   background: linear-gradient(180deg, #F3B121 0%, rgba(255, 203, 90, 0.567708) 53.65%, #FFC954 100%) !important;
+}
+
+.taupe{
+    background: #CAC1B8 !important;
+}
+
+.white{
+    background: #fff !important;
+}
+
+.pink{
+    background: #F2A1B1 !important;
+}
+
+.pink{
+    background:#D23C47 !important;
+}
+
+#choose_color > p {
+    font-size: 14px;
+}
+
+#choose_color > input{
+   display: none;
+}
+
+#choose_price_card{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+#choose_price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#choose_price > input{
+    width: 27px;
+    height: 27px;
+    border: 0.5px solid #000000;
+    margin: 0 16px 16px 0;
+
+}
+
+#write_price_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#write_price_form > input{
+    width: 61px;
+    height: 27px;
+    outline: none;
+    padding-left: 2px;
+}
+
+#write_price_form > p{
+    padding: 0 8px;
+}
+
+
+#write_price_form > :last-child{
+    background: #ED165F;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-left: 16px;
+}

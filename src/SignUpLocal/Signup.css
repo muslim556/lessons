@@ -1,0 +1,47 @@
+#signup{
+    padding: 50px;
+    box-shadow: 0 0 7px 5px rgb(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+#forms_container{
+    display: flex;
+}
+
+#first_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#first_form > label > p{
+    font-size: 20px;
+    padding: 5px 0;
+}
+
+#first_form > label > input{
+    height: 35px;
+    outline: none;
+    padding: 1%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#remember{
+    display: flex;
+    align-items: center;
+}
+
+#first_form > :last-child{
+    padding: 10px 40px;
+    background: none;
+    border: 1px solid #165edf;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#first_form > :last-child:hover{
+    background: #165edf;
+    color: #fff;
+}

@@ -10,7 +10,7 @@ export function LoginPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors},
     reset,
   } = useForm();
 
