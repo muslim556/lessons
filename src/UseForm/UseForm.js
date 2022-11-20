@@ -6,12 +6,7 @@ import show from "../Router/icons/show.webp";
 
 export function UseForm() {
   const [notSee, setNotSee] = useState(true);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data) {
     console.log(data);
@@ -40,14 +35,10 @@ export function UseForm() {
             autoComplete="off"
             id="ism_inp"
           />
-          <div id="messages">
-            {errors?.Ism && <p>{errors?.Ism?.message || "Error!"}</p>}
-          </div>
 
           <div id="password_inp">
             <input
               {...register("Password")}
-              name="password"
               type="password"
               placeholder="Password"
               autoComplete="off"
@@ -73,9 +64,7 @@ export function UseForm() {
               }}
             />
           </div>
-          <div id="messages_password">
-            {errors?.Password && <p>{errors?.Password?.message || "Error"}</p>}
-          </div>
+
           <button id="submit">Explore Cars</button>
         </form>
       </div>
