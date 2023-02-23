@@ -1,295 +1,742 @@
-import React, { useState } from "react";
-import ReactPaginate from "react-paginate";
-import "./PaginationObject.css";
-
-const Data = [
-  {
-    id: 1,
-    name: "Product1",
-    type: "card1",
-  },
-  {
-    id: 2,
-    name: "Product2",
-    type: "card2",
-  },
-  {
-    id: 3,
-    name: "Product3",
-    type: "card3",
-  },
-  {
-    id: 4,
-    name: "Product4",
-    type: "card4",
-  },
-  {
-    id: 5,
-    name: "Product5",
-    type: "card5",
-  },
-  {
-    id: 6,
-    name: "Product6",
-    type: "card6",
-  },
-  {
-    id: 7,
-    name: "Product7",
-    type: "card7",
-  },
-  {
-    id: 8,
-    name: "Product8",
-    type: "card8",
-  },
-  {
-    id: 9,
-    name: "Product9",
-    type: "card9",
-  },
-  {
-    id: 10,
-    name: "Product10",
-    type: "card10",
-  },
-  {
-    id: 11,
-    name: "Product11",
-    type: "card11",
-  },
-  {
-    id: 12,
-    name: "Product12",
-    type: "card12",
-  },
-  {
-    id: 13,
-    name: "Product13",
-    type: "card13",
-  },
-  {
-    id: 14,
-    name: "Product14",
-    type: "card14",
-  },
-  {
-    id: 15,
-    name: "Product15",
-    type: "card15",
-  },
-  {
-    id: 16,
-    name: "Product16",
-    type: "card16",
-  },
-  {
-    id: 17,
-    name: "Product17",
-    type: "card17",
-  },
-  {
-    id: 18,
-    name: "Product18",
-    type: "card18",
-  },
-  {
-    id: 19,
-    name: "Product19",
-    type: "card19",
-  },
-  {
-    id: 20,
-    name: "Product20",
-    type: "card20",
-  },
-  {
-    id: 21,
-    name: "Product21",
-    type: "card21",
-  },
-  {
-    id: 22,
-    name: "Product22",
-    type: "card22",
-  },
-  {
-    id: 23,
-    name: "Product23",
-    type: "card23",
-  },
-  {
-    id: 24,
-    name: "Product24",
-    type: "card24",
-  },
-  {
-    id: 25,
-    name: "Product25",
-    type: "card25",
-  },
-  {
-    id: 26,
-    name: "Product26",
-    type: "card26",
-  },
-  {
-    id: 27,
-    name: "Product27",
-    type: "card27",
-  },
-  {
-    id: 28,
-    name: "Product28",
-    type: "card28",
-  },
-  {
-    id: 29,
-    name: "Product29",
-    type: "card29",
-  },
-  {
-    id: 30,
-    name: "Product30",
-    type: "card30",
-  },
-  {
-    id: 31,
-    name: "Product31",
-    type: "card31",
-  },
-  {
-    id: 32,
-    name: "Product32",
-    type: "card32",
-  },
-  {
-    id: 33,
-    name: "Product33",
-    type: "card33",
-  },
-  {
-    id: 34,
-    name: "Product34",
-    type: "card34",
-  },
-  {
-    id: 35,
-    name: "Product35",
-    type: "card35",
-  },
-  {
-    id: 36,
-    name: "Product36",
-    type: "card36",
-  },
-  {
-    id: 37,
-    name: "Product37",
-    type: "card37",
-  },
-  {
-    id: 38,
-    name: "Product38",
-    type: "card38",
-  },
-  {
-    id: 39,
-    name: "Product39",
-    type: "card39",
-  },
-  {
-    id: 40,
-    name: "Product40",
-    type: "card40",
-  },
-  {
-    id: 41,
-    name: "Product41",
-    type: "card41",
-  },
-  {
-    id: 42,
-    name: "Product42",
-    type: "card42",
-  },
-  {
-    id: 43,
-    name: "Product43",
-    type: "card43",
-  },
-  {
-    id: 44,
-    name: "Product44",
-    type: "card44",
-  },
-  {
-    id: 45,
-    name: "Product45",
-    type: "card45",
-  },
-  {
-    id: 46,
-    name: "Product46",
-    type: "card46",
-  },
-  {
-    id: 47,
-    name: "Product47",
-    type: "card47",
-  },
-  {
-    id: 48,
-    name: "Product48",
-    type: "card48",
-  },
-  {
-    id: 49,
-    name: "Product49",
-    type: "card49",
-  },
-  {
-    id: 50,
-    name: "Product50",
-    type: "card50",
-  },
-];
+import React, { useState, useEffect, useMemo } from "react";
+import { IconButton } from "@mui/material";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { useNavigate } from "react-router-dom";
 
 export function PaginationObject() {
-  const [cards] = useState(Data);
-  const [pageNUmber, setPageNumber] = useState(0);
-  const usersPerPage = 10;
-  const pagesVisited = pageNUmber * usersPerPage;
+  const data = [
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+    {
+      name: "name",
+      price: 120,
+    },
+  ];
+  // Current active button number
+  const [currentButton, setCurrentButton] = useState(1);
+  const [postsPerPage] = useState(12);
+  const navigate = useNavigate();
+  const numberOfPages = [];
 
-  const pageCount = Math.ceil(cards.length / usersPerPage);
+  // Get current posts
+  const indexOfLastPost = currentButton * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
 
-  function changePage({ selected }) {
-    setPageNumber(selected);
+  // Change page
+  const paginate = (pageNumber) => {
+    setCurrentButton(pageNumber);
+  };
+
+  //paginate numbers
+  const maxPageNumber = Math.ceil(data.length / postsPerPage);
+  for (let i = 1; i <= maxPageNumber; i++) {
+    numberOfPages.push(i);
   }
 
-  return (
-    <>
-      <div id="container">
-        {cards.slice(pagesVisited, pagesVisited + usersPerPage).map((item) => {
-          return (
-            <div id="cards" key={item.id}>
-              <p>{item.name}</p>
-              <p> {item.type} </p>
-            </div>
-          );
-        })}
-        <ReactPaginate
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName={"pagination_btns"}
-          previousLinkClassName={"previuos_btns"}
-          nextLinkClassName={"next_btn"}
-          disabledClassName={"pagination_disabled"}
-          activeClassName={"pagination_active"}
-        />
-      </div>
-    </>
-  );
+  // Array of buttons what we see on the page
+  const [arrOfCurrButtons, setArrOfCurrButtons] = useState([]);
+
+  useEffect(() => {
+    let tempNumberOfPages = [...arrOfCurrButtons];
+
+    let dotsInitial = "...";
+    let dotsLeft = "... ";
+    let dotsRight = " ...";
+
+    if (numberOfPages.length < 6) {
+      tempNumberOfPages = numberOfPages;
+    } else if (currentButton >= 1 && currentButton <= 3) {
+      tempNumberOfPages = [1, 2, 3, 4, dotsInitial, numberOfPages.length];
+    } else if (currentButton === 4) {
+      const sliced = numberOfPages.slice(0, 5);
+      tempNumberOfPages = [...sliced, dotsInitial, numberOfPages.length];
+    } else if (currentButton > 4 && currentButton < numberOfPages.length - 2) {
+      // from 5 to 8 -> (10 - 2)
+      const sliced1 = numberOfPages.slice(currentButton - 2, currentButton); // sliced1 (5-2, 5) -> [4,5]
+      const sliced2 = numberOfPages.slice(currentButton, currentButton + 1); // sliced1 (5, 5+1) -> [6]
+      tempNumberOfPages = [
+        1,
+        dotsLeft,
+        ...sliced1,
+        ...sliced2,
+        dotsRight,
+        numberOfPages.length,
+      ]; // [1, '...', 4, 5, 6, '...', 10]
+    } else if (currentButton > numberOfPages.length - 3) {
+      // > 7
+      const sliced = numberOfPages.slice(numberOfPages.length - 4); // slice(10-4)
+      tempNumberOfPages = [1, dotsLeft, ...sliced];
+    } else if (currentButton === dotsInitial) {
+      // [1, 2, 3, 4, "...", 10].length = 6 - 3  = 3
+      // arrOfCurrButtons[3] = 4 + 1 = 5
+      // or
+      // [1, 2, 3, 4, 5, "...", 10].length = 7 - 3 = 4
+      // [1, 2, 3, 4, 5, "...", 10][4] = 5 + 1 = 6
+      setCurrentButton(arrOfCurrButtons[arrOfCurrButtons.length - 3] + 1);
+    } else if (currentButton === dotsRight) {
+      setCurrentButton(arrOfCurrButtons[3] + 2);
+    } else if (currentButton === dotsLeft) {
+      setCurrentButton(arrOfCurrButtons[3] - 2);
+    }
+
+    setCurrentButton(currentButton);
+    setArrOfCurrButtons(tempNumberOfPages);
+  }, [arrOfCurrButtons, currentButton, numberOfPages]); // eslint-disable-line
+
+  let left = currentButton - 1;
+  let right = currentButton + 1;
+
+  const paginationRange = useMemo(() => {
+    // Our implementation logic will go here
+  }, []);
+  return paginationRange;
+
+  // return (
+  //   <div id="ShowProduct">
+  //     <div className="container">
+  //       {currentPosts.map((item, i) => {
+  //         // const price = item.price.toString().split("").slice(0, 3).join("");
+  //         // const img = JSON.parse(item.images || [])[0];
+  //         return (
+  //           <div
+  //             key={i}
+  //             onClick={() => {
+  //               navigate(`/view/product/${item.id}`);
+  //               window.scroll({
+  //                 top: 0,
+  //                 left: 0,
+  //                 behavior: "smooth",
+  //               });
+  //             }}
+  //           >
+  //             <h2>{item.name}</h2>
+  //             <p>{item.price} sum</p>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //     {maxPageNumber > 1 ? (
+  //         <IconButton
+  //           onClick={() =>
+  //             setCurrentButton(currentButton !== 1 ? left : currentButton)
+  //           }
+  //         >
+  //           <ChevronLeftIcon />
+  //         </IconButton>
+  //         {arrOfCurrButtons.map((number) => (
+  //           <IconButton
+  //             key={number}
+  //             onClick={() => paginate(number)}
+  //             className={
+  //               currentButton === number ? "pageLink activeLink" : "pageLink"
+  //             }
+  //           >
+  //             {number}
+  //           </IconButton>
+  //         ))}
+  //         <IconButton
+  //           onClick={() =>
+  //             setCurrentButton(currentButton !== maxPageNumber ? right : 1)
+  //           }
+  //         >
+  //           <ChevronRightIcon />
+  //         </IconButton>
+  //       </div>
+  //     ) : (
+  //       ""
+  //     )}
+  //   </div>
+  // );
 }

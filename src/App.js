@@ -1,10 +1,11 @@
 import React from "react";
-import { Vaqt } from "./Vaqt/Vaqt";
+import Register from "./LocalStorage/Register";
+import SignIn from "./LocalStorage/SignIn";
 
 export function App() {
   return (
-    <>
-      <Vaqt />
-    </>
+    <div>
+      <Register />
+    </div>
   );
 }
